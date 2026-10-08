@@ -20,8 +20,8 @@ app = Flask(__name__)
 
 @app.route("/", methods=["POST"])
 def index():
-    trace_id = request.json["trace_id"]  # type: ignore
-    sleep_seconds = request.json["sleep_seconds"]  # type: ignore
+    trace_id = request.json["trace_id"]
+    sleep_seconds = request.json["sleep_seconds"]
     app.logger.info(f"Sending event with trace ID {trace_id}")
     tracer.send_event(
         E2E_TESTS_EXPECTED_MESSAGE,
